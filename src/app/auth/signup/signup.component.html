@@ -1,0 +1,80 @@
+<div class="loginWrapper">
+    <div class="containerCustom">
+    <div class="loginOuter">
+    <div class="loginDiv loginLeft" >
+      <div class="info ">
+            <a href="login-32.html" class="logo">
+                <img src="../../assets/logo1.png" alt="logo">
+            </a>
+                <h1>Welcome to <span>Kings</span></h1>
+            <div class="extra-login form-group clearfix">
+                <span>Login With</span>
+            </div> 
+            <div style="position: relative;">
+                <div class="center11">
+                    <ul class="rs-list">
+                      <li class="google"><i class="fa fa-google-plus"></i></li>
+                      <li class="facebook"><i class="fa fa-facebook"></i></li>
+                      <li class="twitter"><i class="fa fa-twitter"></i></li>
+                      <li class="instagram"><i class="fa fa-instagram"></i></li>
+                      <li class="pinterest"><i class="fa fa-pinterest"></i></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+     </div>
+    <div class="loginDiv loginRight" >
+        <div class="form-inner">
+            <a href="login-32.html" class="logo">
+                <img src="../../assets/logo.png" alt="logo">
+            </a>
+            <h3>Sign Up</h3>
+            <form [formGroup]="signupForm">
+                <div class="form-group form-box">
+                    <input type="text" name="fullname" class="input-text" 
+                    placeholder="Full Name" formControlName="name">
+                    <i class="fas fa-user"></i>
+                    <div class="text-danger" *ngIf="!signupForm.controls['name'].valid && signupForm.controls['name'].touched">
+                        <span *ngIf="signupForm.controls['name'].hasError('required')">Name is required</span>
+                       </div>
+                </div>
+                <div class="form-group form-box">
+                    <input type="email" name="email" class="input-text" 
+                    placeholder="Email Address" formControlName="email">
+                    <i class="fas fa-envelope"></i>
+                    <div class="text-danger" *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
+                        <span *ngIf="signupForm.controls['email'].hasError('required')">Email is required</span>
+                        <span *ngIf="signupForm.controls['email'].hasError('pattern')">Enter valid Email</span>
+                       </div>
+                </div>
+                <div class="form-group form-box">
+                    <input [type]="showPwd"  name="Password" class="input-text" 
+                    placeholder="Password" formControlName="password">
+                    <i class="fas fa-eye" *ngIf="showPwd === 'text'" (click)="showPwd = 'password'"></i>
+                    <i class="fas fa-eye-slash" *ngIf="showPwd === 'password'" (click)="showPwd = 'text'"></i>
+                    <div class="text-danger" *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
+                        <span *type]="showPwd" ngIf="signupForm.controls['password'].hasError('required')">Password is required</span>
+                 </div>
+                </div>
+                <div class="form-group form-box">
+                    <input  [type]="showPwdCon" name="Password" class="input-text" 
+                    placeholder="Confirm Password" formControlName="confirmPassword">
+                    <i class="fas fa-eye" *ngIf="showPwdCon === 'text'" (click)="showPwdCon = 'password'"></i>
+                    <i class="fas fa-eye-slash" *ngIf="showPwdCon === 'password'" (click)="showPwdCon = 'text'"></i>
+                    <div class="text-danger" *ngIf="!signupForm.controls['confirmPassword'].valid && signupForm.controls['confirmPassword'].touched">
+                    <span *ngIf="signupForm.controls['confirmPassword'].hasError('required')">Confirm Password is required</span>
+                 </div>
+                 </div>
+               
+                <div class="form-group">
+                    <button type="submit" class="btn-md btn-theme btn-block" 
+                    (click)="register()">Register</button>
+                </div>
+             </form>
+             <p>Already a member? <a routerLink="/login">Login here</a></p>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
